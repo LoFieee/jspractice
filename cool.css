@@ -1,0 +1,45 @@
+.overlay{
+	position:absolute;
+	width:100vw;
+	background-image:linear-gradient(transparent,rgba(0,0,0,0.5));
+	z-index:1
+  }
+  
+	
+  
+  @keyframes animateGrain{
+	0%, 100% { transform:translate(0, 0) }
+	10%{
+	  transform:translate(-5%,-10%)
+	}
+	20%{
+	  transform:translate(-15%,-20%)
+	}
+	30%{
+	  transform:translate(-5%,-10%)
+	}
+	40%{
+	  transform:translate(-15%,-20%)
+	}
+	
+	50%{
+	  transform:translate(-5%,-10%)
+	}
+	60%{
+	  transform:translate(-15%,-20%)
+	}
+	70%{
+	  transform:translate(-5%,-10%)
+	}
+	80%{
+	  transform:translate(-15%,-20%)
+	}
+	90%{
+	  transform:translate(-5%,-10%)
+	}
+	100%{
+	  transform:translate(-15%,-20%)
+	}
+   
+  }
+  
