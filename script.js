@@ -8,7 +8,7 @@ canvas.style.position = 'fixed';
 canvas.style.top = '0';
 canvas.style.left = '0';
 canvas.style.zIndex = '9999';
-canvas.style.pointerEvents = 'none'; // Permettre les clics à travers le canvas
+canvas.style.pointerEvents = 'none';
 
 
 $(document).ready(function () {
@@ -24,7 +24,7 @@ $(document).ready(function () {
     });
 
     $('#navet-btn').click(function () {
-        $('#navet-range-bomb').toggle();
+        $('#navet-range-delete').toggle();
     });
 
     $('#classique-btn').click(function () {
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
         let url = `http://localhost:8080/movies?origine=${selectedCountry}`;
 
-        if ($('#navet-range-bomb').is(':visible')) {
+        if ($('#navet-range-delete').is(':visible')) {
             url += `&noteMax=${navetValue}`;
         } else if ($('#classique-range').is(':visible')) {
             url += `&noteMin=4.2`;
@@ -67,7 +67,7 @@ $(document).ready(function () {
                     $(instance).find('.compagnie').text(movie.compagnie);
                     $(instance).find('.description').text(movie.description);
                     $(instance).find('.lienImage').attr('src', movie.lienImage);
-                    $(instance).find('.bomb').attr("data-id", movie.id);
+                    $(instance).find('.delete').attr("data-id", movie.id);
 
                     if (movie.note >= 4.2) {
                         $(instance).find('.movie')[0].style.border = "3px solid gold";
@@ -86,7 +86,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".edit", function () {
         const movieElement = $(this).closest(".movie");
-        const movieId = movieElement.find(".bomb").data("id");
+        const movieId = movieElement.find(".delete").data("id");
 
 
 
@@ -104,7 +104,7 @@ $(document).ready(function () {
         $('#edit-movie-form').show();
     });
 
-    $(document).on("click", ".bomb", function () {
+    $(document).on("click", ".delete", function () {
         console.log("Apagnan v2 ?");
         const movieId = $(this).data("id");
         fetch(`http://localhost:8080/movies/${movieId}`, {
@@ -186,7 +186,15 @@ $(document).ready(function () {
             data: JSON.stringify(formData),
             success: function (response) {
                 if (response.success) {
-                    alert("AAAAAH");
+                    alertbox.render({
+                        alertIcon: 'success',
+                        title: 'Thank You!',
+                        message: 'AlertBox Popup Message',
+                        btnTitle: 'Ok',
+                        themeColor: '#000000',
+                        btnColor: '#7CFC00',
+                        btnColor: true
+                      });
                     $('#add-movie-form')[0].reset();
                 } else {
                     alert('Erreur lors de l\'ajout du film : ' + response.error);
@@ -199,3 +207,4 @@ $(document).ready(function () {
         });
     });
 });
+

@@ -1,43 +1,42 @@
-/* Variables des couleurs Mario 64 */
-#add-film-btn,
+#add-movie-btn,
 #classique-btn,
 #navet-btn {
     display: inline-block;
 }
 
-/* Conteneur flex pour centrer les boutons */
-#add-film-btn,
+
+#add-movie-btn,
 #classique-btn,
 #navet-btn {
     margin: 0 5px;
 }
 
-/* Créer un conteneur pour les boutons */
-body>button:not(#load-movies-btn):not(.bomb):not(.edit) {
+
+body>button:not(#load-movies-btn):not(.delete):not(.edit) {
     display: inline-block;
 }
 
-/* Centre les boutons */
-body>button:not(#load-movies-btn):not(.bomb):not(.edit) {
+
+body>button:not(#load-movies-btn):not(.delete):not(.edit) {
     text-align: center;
 }
 
-/* Wrapper pour les boutons */
-#add-film-btn,
+
+#add-movie-btn,
 #classique-btn,
 #navet-btn {
     display: inline-block;
     vertical-align: middle;
 }
 
-/* Conteneur pour centrer les boutons */
-#add-film-btn,
+
+#add-movie-btn,
 #classique-btn,
 #navet-btn {
     text-align: center;
 }
 
-/* Centre le conteneur lui-même */
+
 body {
     text-align: center;
 }
@@ -45,12 +44,11 @@ body {
 
 :root {
     --black: #000000;
-    --mario-yellow: #ffd700;
     --bg-color: #1a1a2e;
     --card-bg: #2a2a4e;
 }
 
-/* Style général */
+
 body {
     font-family: "Syne";
     margin: 0;
@@ -59,7 +57,7 @@ body {
 }
 
 
-/* Container principal */
+
 #movies-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -69,7 +67,7 @@ body {
     margin: 0 auto;
 }
 
-/* Style des cartes de films */
+
 .movie {
     background: gray;
     border: 4px solid #000000;
@@ -81,7 +79,7 @@ body {
 }
 
 
-/* Images */
+
 .movie img {
     width: 100%;
     height: 200px;
@@ -91,7 +89,7 @@ body {
     image-rendering: pixelated;
 }
 
-/* Texte */
+
 .movie p {
     font-size: 12px;
     margin: 8px 0;
@@ -100,7 +98,7 @@ body {
     line-height: 1.5;
 }
 
-/* Titres */
+
 .movie h2 {
     color: white;
     font-size: 16px;
@@ -113,7 +111,7 @@ body {
         1px 1px 0 #000;
 }
 
-/* Boutons style Mario */
+
 button {
     font-family: 'Syne', cursive;
     font-size: 12px;
@@ -135,9 +133,9 @@ button:active {
 
 }
 
-/* Bouton Charger */
+
 #load-movies-btn {
-    background: var(--mario-yellow);
+    background: red;
     font-size: 14px;
     padding: 12px 24px;
     margin: 20px auto;
@@ -145,17 +143,17 @@ button:active {
     background-color: #000;
 }
 
-/* Bouton Delete */
-.bomb {
+
+.delete {
     background: black;
 }
 
-/* Bouton Edit */
+
 .edit {
     background: #000000;
 }
 
-/* Formulaire */
+
 #add-movie,
 #edit-movie-form {
     background: black;
@@ -165,20 +163,19 @@ button:active {
     margin: 20px auto;
 }
 
-/* Inputs */
 input,
 select,
 textarea {
     font-family: "Syne";
     font-size: 12px;
     padding: 8px;
-    width: calc(100% - 20px);
+    width: calc(50% - 20px);
     background: #fff;
     border: 2px solid #000;
     border-radius: 4px;
 }
 
-/* Labels */
+
 label {
     font-size: 12px;
     color: white;
@@ -187,7 +184,7 @@ label {
     margin-top: 10px;
 }
 
-/* Films spéciaux */
+
 .movie[data-type="classic"] {
     border-color: blue;
     background: linear-gradient(45deg, var(--card-bg), #3a3a6e);
@@ -198,13 +195,13 @@ label {
     background: linear-gradient(45deg, var(--card-bg), #4a2a2e);
 }
 
-/* Select dropdown */
+
 #drop {
     font-family: "Syne";
     font-size: 12px;
     padding: 8px 12px;
     margin: 10px auto;
-    background: var(--mario-blue);
+    background: black;
     color: white;
     border: 2px solid #000;
     border-radius: 4px;
@@ -230,12 +227,17 @@ label {
     font-size: 12px;
 }
 
-/* Animation pour les boutons hover */
+
 button:hover {
     filter: brightness(1.2);
 }
 
-/* Media Queries */
+.movie:hover {
+    transform: translateY(20px);
+}
+
+
+
 @media (max-width: 768px) {
     #movies-list {
         grid-template-columns: 1fr;
@@ -253,53 +255,92 @@ button:hover {
 
 
 
-.wrapper { 
+.wrapper {
     height: 100%;
     width: 100%;
-    left:0;
+    left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     position: absolute;
-  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-  background-size: 1800% 1800%;
-  
-  -webkit-animation: rainbow 18s ease infinite;
-  -z-animation: rainbow 18s ease infinite;
-  -o-animation: rainbow 18s ease infinite;
-    animation: rainbow 18s ease infinite;}
-  
-  @-webkit-keyframes rainbow {
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  @-moz-keyframes rainbow {
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  @-o-keyframes rainbow {
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
-  @keyframes rainbow { 
-      0%{background-position:0% 82%}
-      50%{background-position:100% 19%}
-      100%{background-position:0% 82%}
-  }
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+
+    -webkit-animation: rainbow 18s ease infinite;
+    -z-animation: rainbow 18s ease infinite;
+    -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-moz-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-o-keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
+}
 
 
-
-
-  .movie{
-    background-color: transparent;
+.movie {
+    margin: auto;
+    overflow: auto;
+    background: linear-gradient(315deg, rgb(38, 34, 34) 3%, rgb(209, 209, 209) 38%, rgb(122, 122, 122) 68%, rgb(3, 3, 3) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
 }
 
 body {
     margin: auto;
-    overflow:scroll;
+    overflow: auto;
     background: linear-gradient(315deg, rgb(35, 4, 207) 3%, rgb(77, 78, 176) 38%, rgb(76, 72, 159) 68%, rgb(133, 129, 141) 98%);
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
@@ -310,9 +351,11 @@ body {
     0% {
         background-position: 0% 0%;
     }
+
     50% {
         background-position: 100% 100%;
     }
+
     100% {
         background-position: 0% 0%;
     }
@@ -363,5 +406,63 @@ body {
 
     100% {
         transform: translateX(1);
+    }
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 200%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+svg {
+    position: fixed;
+    margin-top: -50px;
+    margin-left: -50px;
+    top: 10%;
+    left: 10%;
+  
+    animation: rotate 1s linear infinite;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+    background: linear-gradient(315deg, rgb(165, 249, 189) 3%, rgb(255, 107, 107) 38%, rgb(105, 228, 255) 68%, rgb(111, 39, 255) 98%);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+svg:hover
+{
+    filter: brightness(1.2);
+    
+    to {
+        transform: rotate(360deg);
+        transform:scale(9.2);   
+        animation: rotate 1s linear infinite;   
     }
 }
